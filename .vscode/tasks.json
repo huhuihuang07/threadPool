@@ -1,0 +1,61 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "create Build Directory",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "build"
+            ],
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe",
+                    },
+                },
+                "args": [
+                    "-Force",
+                    "build"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }, 
+            "problemMatcher": [
+                "$gcc"
+            ],
+        },
+        {
+            "type": "shell",
+            "label": "run cmake",
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_MAKE_PROGRAM=D:\\mingw-w64\\mingw64\\bin\\make.exe",
+                "-G",
+                "\\\"Unix Makefiles\\\"",  
+                "../"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "dependsOn": [
+                "create Build Directory"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "run make",
+            "command": "make",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "dependsOn": [
+                "run cmake"
+            ]
+        }
+    ],
+    "VERSION": "2.0.0"
+}

@@ -1,0 +1,28 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "pthread.h": "c",
+        "threadpool.h": "c",
+        "cstdlib": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\huihuanghu\\Desktop\\threadPool",
+            "binaryPath": "c:\\Users\\huihuanghu\\Desktop\\threadPool\\a.out",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "c:\\Users\\huihuanghu\\Desktop\\threadPool",
+            "binaryPath": "c:\\Users\\huihuanghu\\Desktop\\threadPool\\exes",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "",
+            "binaryPath": ":)",
+            "binaryArgs": []
+        }
+    ]
+}
