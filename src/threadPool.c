@@ -24,8 +24,7 @@ void *threadPool_create(int min_thr_num, int max_thr_num, int queue_max_size)
         pool->queue_max_size = queue_max_size;
         pool->shutdown = 0;
 
-        pool->threads = (pthread_t *)malloc(sizeof(pthread_t) * max_thr_num);
-        if (NULL == pool->threads)
+        if (NULL == (pool->threads = (pthread_t *)malloc(sizeof(pthread_t) * max_thr_num)))
         {
             fprintf(stderr, "malloc threads false;\n");
             break;
@@ -33,8 +32,7 @@ void *threadPool_create(int min_thr_num, int max_thr_num, int queue_max_size)
 
         memset(pool->threads, 0, sizeof(pthread_t) * max_thr_num);
 
-        pool->task_queue = (threadPool_Task_t *)malloc(sizeof(threadPool_Task_t) * queue_max_size);
-        if (NULL == pool->task_queue)
+        if (NULL == (pool->task_queue = (threadPool_Task_t *)malloc(sizeof(threadPool_Task_t) * queue_max_size)))
         {
             fprintf(stderr, "malloc task_queue false;\n");
             break;
@@ -263,7 +261,8 @@ void *threadPool_admin_thread(void *threadPool)
             }
         }
     }
-    return NULL;
+
+    pthread_exit(NULL);
 }
 
 int threadPool_add_task(void *threadPool, pFunc function, void *arg)
