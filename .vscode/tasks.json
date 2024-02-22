@@ -22,7 +22,7 @@
             },
             "options": {
                 "cwd": "${workspaceFolder}"
-            }, 
+            },
             "problemMatcher": [
                 "$gcc"
             ],
@@ -34,7 +34,7 @@
             "args": [
                 "-DCMAKE_MAKE_PROGRAM=D:\\mingw-w64\\mingw64\\bin\\make.exe",
                 "-G",
-                "\\\"Unix Makefiles\\\"",  
+                "\\\"MinGW Makefiles\\\"",
                 "../"
             ],
             "options": {
